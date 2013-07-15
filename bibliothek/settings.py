@@ -1,4 +1,5 @@
 # Django settings for bibliothek project.
+from os.path import join, abspath, dirname
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -48,6 +49,11 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+# Get directory paths used in settings
+here = lambda *x: join(abspath(dirname(__file__)), *x)
+PROJECT_ROOT = here('..')
+root = lambda *x: join(abspath(PROJECT_ROOT), *x)
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = ''
@@ -72,6 +78,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    root('public'),
 )
 
 # List of finder classes that know how to find static files in
@@ -111,6 +118,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    root('templates'),
 )
 
 INSTALLED_APPS = (
