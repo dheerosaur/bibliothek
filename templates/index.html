@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block body_js %}
+  <script src="{% static 'js/libs/jquery.js' %}"></script>
+  <script src="{% static 'js/libs/underscore.js' %}"></script>
+  <script src="{% static 'js/libs/backbone.js' %}"></script>
+  <script src="{% static 'js/models/book.js' %}"></script>
+  <script src="{% static 'js/collections/library.js' %}"></script>
+  <script src="{% static 'js/views/book.js' %}"></script>
+  <script src="{% static 'js/views/library.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
