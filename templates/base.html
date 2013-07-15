@@ -1,0 +1,24 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bibliothek</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1>Bibliothek</h1>
+    </header>
+
+    {% block content %}
+    {% endblock 5}
+
+    {% block js_templates %}
+    {% endblock %}
+
+    {% block body_js %}
+    {% endblock %}
+
+  </body>
+</html>
