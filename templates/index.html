@@ -44,7 +44,7 @@
       <li><%= title %></li>
       <li><%= author %></li>
       <li><%= releaseDate %></li>
-      <li><%= keywords%></li>
+      <li><% _.each(keywords, function (k) { %> <%= k %><% }); %></li>
     </ul>
     <button class="delete pure-button">Delete</button>
   </script>
@@ -53,7 +53,8 @@
 {% block body_js %}
   <script>
     app = {
-      defaultCover: "{% static 'img/placeholder.png' %}"
+      defaultCover: "{% static 'img/placeholder.png' %}",
+      apiUrl: "/api/v1/"
     }
   </script>
   <script src="{% static 'js/libs/jquery.js' %}"></script>

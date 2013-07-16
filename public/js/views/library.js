@@ -14,7 +14,7 @@ app.LibraryView = Backbone.View.extend({
     this.listenTo(this.books, 'reset', this.render);
     this.listenTo(this.books, 'add', this.renderBook);
 
-    this.books.reset(initialBooks);
+    this.books.fetch({reset: true});
 
   },
 
@@ -42,7 +42,7 @@ app.LibraryView = Backbone.View.extend({
       }
     });
 
-    this.books.create(new app.Book(formData));
-  }
+    this.books.create(formData, {wait: true});
+  },
 
 });
