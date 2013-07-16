@@ -2,23 +2,40 @@
 {% load static from staticfiles %}
 
 {% block content %}
-  <div id="books">
-    <form id="addBook" action="#" method="post">
-      <div>
-        <label for="coverImage">CoverImage: </label>
-        <input id="coverImage" type="file" name="cover"/>
-        <label for="title">Title</label>
-        <input id="coverImage" type="text" name="title" />
-        <label for="author">Author</label>
-        <input id="author" type="text" name="author" />
-        <label for="releaseDate">Release date</label>
-        <input id="releaseDate" type="text" name="releaseDate" />
-        <label for="keywords">Keywords</label>
-        <input id="keywords" type="text" name="keywords" />
-        <button id="add">Add</button>
-      </div>
+  <div id="form">
+    <form class="pure-form pure-form-stacked" id="addBook" action="#" method="post">
+      <fieldset>
+        <legend>Add book</legend>
+        <div class="pure-g-r">
+          <div class="pure-u-1-2">
+            <label for="title">Title</label>
+            <input id="coverImage" type="text" name="title" />
+          </div>
+          <div class="pure-u-1-2">
+            <label for="author">Author</label>
+            <input id="author" type="text" name="author" />
+          </div>
+          <div class="pure-u-1-2">
+            <label for="releaseDate">Release date</label>
+            <input id="releaseDate" type="text" name="releaseDate" />
+          </div>
+          <div class="pure-u-1-2">
+            <label for="keywords">Keywords</label>
+            <input id="keywords" type="text" name="keywords" />
+          </div>
+          <div class="pure-u-1-2 hide">
+            <label for="coverImage">CoverImage</label>
+            <input id="coverImage" type="file" name="cover"/>
+          </div>
+          <div class="pure-u-1-2">
+            <button class="pure-button" id="add">Add</button>
+          </div>
+        </div>
+      </fieldset>
     </form>
-    <div class="bookContainer">
+  </div>
+  <div class="pure-g-r" id="books">
+    <div class="pure-u-1-3 bookContainer">
       <img src="{% static 'img/placeholder.png' %}" alt="Title" />
       <ul>
         <li>Title</li>
@@ -26,25 +43,30 @@
         <li>Release date</li>
         <li>Keywords</li>
       </ul>
-      <button class="delete">Delete</button>
+      <button class="delete pure-button">Delete</button>
     </div>
   </div>
 {% endblock %}
 
 {% block js_templates %}
   <script id='bookTemplate', type="text/template">
-    <img src="<%= coverImage>"/>
+    <img src="<%= coverImage>" alt="<%= title %>"/>
     <ul>
       <li><%= title %></li>
       <li><%= author %></li>
       <li><%= releaseDate %></li>
       <li><%= keywords%></li>
     </ul>
-    <button class="delete">Delete</button>
+    <button class="delete pure-button">Delete</button>
   </script>
 {% endblock %}
 
 {% block body_js %}
+  <script>
+    app = {
+      defaultCover: "{% static 'img/placeholder.png' %}"
+    }
+  </script>
   <script src="{% static 'js/libs/jquery.js' %}"></script>
   <script src="{% static 'js/libs/underscore.js' %}"></script>
   <script src="{% static 'js/libs/backbone.js' %}"></script>

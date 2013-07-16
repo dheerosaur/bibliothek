@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
   </head>
   <body>
-    <header>
-      <h1>Bibliothek</h1>
-    </header>
 
-    {% block content %}
-    {% endblock %}
+    <div id="content">
+      <header>
+        <h1>Bibliothek</h1>
+      </header>
+      {% block content %}
+      {% endblock %}
+    </div>
 
     {% block js_templates %}
     {% endblock %}

@@ -1,2 +1,59 @@
-body {
+#content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#add {
+  margin: 10px 0;
+}
+
+#addBook input {
+  width: 75%;
+  max-width: 350px;
+}
+
+.hide {
+  display: none;
+}
+
+.bookContainer {
+  outline: 1px solid #eee;
+}
+
+.bookContainer img {
+  float: left;
+  margin: 5px;
+  margin-right: 10px;
+  width: 100px;
+  height: auto;
+}
+
+.bookContainer ul {
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.bookContainer .delete {
+  font-size: 75%;
+  color: white;
+  padding: .3em 1em;
+  background: rgb(150, 150, 150);
+}
+
+@media (max-width: 1200px) {
+  #content {
+    width: 1000px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1020px) {
+  #content {
+    width: 100%;
+    padding: 0 10px;
+  }
 }
