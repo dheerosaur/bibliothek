@@ -7,17 +7,27 @@
       <div>
         <label for="coverImage">CoverImage: </label>
         <input id="coverImage" type="file" name="cover"/>
-        <label for="title"></label>
+        <label for="title">Title</label>
         <input id="coverImage" type="text" name="title" />
-        <label for="author"></label>
+        <label for="author">Author</label>
         <input id="author" type="text" name="author" />
-        <label for="releaseDate"></label>
+        <label for="releaseDate">Release date</label>
         <input id="releaseDate" type="text" name="releaseDate" />
-        <label for="keywords"></label>
+        <label for="keywords">Keywords</label>
         <input id="keywords" type="text" name="keywords" />
         <button id="add">Add</button>
       </div>
     </form>
+    <div class="bookContainer">
+      <img src="{% static 'img/placeholder.png' %}" alt="Title" />
+      <ul>
+        <li>Title</li>
+        <li>Author</li>
+        <li>Release date</li>
+        <li>Keywords</li>
+      </ul>
+      <button class="delete">Delete</button>
+    </div>
   </div>
 {% endblock %}
 
