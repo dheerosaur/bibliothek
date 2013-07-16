@@ -38,6 +38,11 @@ app.LibraryView = Backbone.View.extend({
     $('#addBook div').children('input').each(function (i, el) {
       var val = $(el).val();
       if ( val != '') {
+        if (el.id == 'releaseDate') {
+          val = $('#releaseDate').datepicker('getDate').toISOString();
+        } else if (el.id == 'keywords') {
+          val = val.split(' ');
+        }
         formData[el.id] = val;
       }
     });
