@@ -3,8 +3,21 @@
   margin: 0 auto;
 }
 
-#add {
+.buttons button {
   margin: 10px 0;
+}
+
+.buttons #save,
+.buttons #cancel {
+  display: none;
+}
+
+.buttons.editing #add {
+  display: none;
+}
+.buttons.editing #save,
+.buttons.editing #cancel {
+  display: inline-block;
 }
 
 #addBook input {
