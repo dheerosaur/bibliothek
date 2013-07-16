@@ -4,7 +4,9 @@ app.LibraryView = Backbone.View.extend({
   el: '#books',
 
   events: {
-    'click #add':   'addBook',
+    'click #add':     'addBook',
+    'click #save':    'saveEdit',
+    'click #cancel':  'cancelEdit'
   },
 
   initialize: function (initialBooks) {
@@ -13,6 +15,7 @@ app.LibraryView = Backbone.View.extend({
 
     this.listenTo(this.books, 'reset', this.render);
     this.listenTo(this.books, 'add', this.renderBook);
+    this.listenTo(this.books, 'edit', this.startEdit);
 
     this.books.fetch({reset: true});
 
@@ -30,19 +33,40 @@ app.LibraryView = Backbone.View.extend({
     this.$list.append(bookView.render().el);
   },
 
-  addBook: function (e) {
-    e.preventDefault();
-
+  getFormData: function () {
     var formData = {};
-
     $('#addBook div').children('input').each(function (i, el) {
       var val = $(el).val();
       if ( val != '') {
         formData[el.id] = val;
       }
     });
-
-    this.books.create(formData, {wait: true});
+    return formData;
   },
+
+  addBook: function (e) {
+    e.preventDefault();
+    this.books.create(this.getFormData(), {wait: true});
+  },
+
+  startEdit: function () {
+    var book = app.activeBook;
+    this.$('.buttons').addClass('editing');
+    this.$('form input#title').val(book.get('title'));
+    this.$('form input#author').val(book.get('author'));
+  },
+
+  saveEdit: function (e) {
+    e.preventDefault();
+    app.activeBook.save(this.getFormData());
+    app.activeBook.trigger('edit:done');
+  },
+
+  cancelEdit: function (e) {
+    e.preventDefault()
+    app.activeBook = null;
+    this.$('form input').val('');
+    this.$('.buttons').removeClass('editing');
+  }
 
 });
