@@ -57,8 +57,21 @@ app.LibraryView = Backbone.View.extend({
   startEdit: function () {
     var book = app.activeBook;
     this.$('.buttons').addClass('editing');
+
+    // Reset all form inputs
+    this.$('form input').val('');
+
     this.$('form input#title').val(book.get('title'));
     this.$('form input#author').val(book.get('author'));
+
+    var releaseDate = book.get('releaseDate')
+    if (releaseDate !== null)
+      this.$('form input#releaseDate').val(
+        $.format.date(releaseDate, "dd/MM/yyyy"));
+
+    var keywords = book.get('keywords')
+    if (keywords)
+      this.$('form input#keywords').val(keywords.join(' '));
   },
 
   saveEdit: function (e) {
