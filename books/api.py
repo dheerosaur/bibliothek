@@ -11,6 +11,7 @@ class BookResource(ModelResource):
     class Meta:
         queryset = Book.objects.all()
         authorization = Authorization()
+        always_return_data = True
         resource_name = 'books'
 
     def dehydrate_keywords(self, bundle):
