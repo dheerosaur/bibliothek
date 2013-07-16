@@ -2,14 +2,14 @@
 {% load static from staticfiles %}
 
 {% block content %}
-  <div id="form">
+  <div id="books">
     <form class="pure-form pure-form-stacked" id="addBook" action="#" method="post">
       <fieldset>
         <legend>Add book</legend>
         <div class="pure-g-r">
           <div class="pure-u-1-2">
             <label for="title">Title</label>
-            <input id="coverImage" type="text" name="title" />
+            <input id="title" type="text" name="title" />
           </div>
           <div class="pure-u-1-2">
             <label for="author">Author</label>
@@ -33,18 +33,7 @@
         </div>
       </fieldset>
     </form>
-  </div>
-  <div class="pure-g-r" id="books">
-    <div class="pure-u-1-3 bookContainer">
-      <img src="{% static 'img/placeholder.png' %}" alt="Title" />
-      <ul>
-        <li>Title</li>
-        <li>Author</li>
-        <li>Release date</li>
-        <li>Keywords</li>
-      </ul>
-      <button class="delete pure-button">Delete</button>
-    </div>
+    <div class="pure-g-r" id="book-list"></div>
   </div>
 {% endblock %}
 
