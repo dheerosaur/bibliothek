@@ -50,8 +50,10 @@
     <ul>
       <li class="title"><%= title %></li>
       <li><%= author %></li>
-      <li><%= releaseDate %></li>
-      <li><% _.each(keywords, function (k) { %> <%= k %><% }); %></li>
+      <% if (releaseDate) { %>
+        <li><%= $.format.date(new Date(releaseDate), "MMMM yyyy") %></li>
+      <% } %>
+      <% if (keywords) { %><li><%= keywords.join(', ') %></li><% } %>
     </ul>
     <button class="edit pure-button">edit</button>
     <button class="delete pure-button">Delete</button>
@@ -67,6 +69,7 @@
   </script>
   <script src="{% static 'js/libs/jquery.js' %}"></script>
   <script src="{% static 'js/libs/jquery-ui-1.10.3.custom.min.js' %}"></script>
+  <script src="{% static 'js/libs/jquery.dateFormat-1.0.js' %}"></script>
   <script src="{% static 'js/libs/underscore.js' %}"></script>
   <script src="{% static 'js/libs/backbone.js' %}"></script>
   <script src="{% static 'js/models/book.js' %}"></script>
