@@ -29,6 +29,7 @@
           </div>
           <div class="pure-u-1-2">
             <button class="pure-button" id="add">Add</button>
+            <button class="pure-button hide" id="cancel">Cancel</button>
           </div>
         </div>
       </fieldset>
@@ -41,11 +42,12 @@
   <script id='bookTemplate', type="text/template">
     <img src="<%= coverImage %>" alt="<%= title %>"/>
     <ul>
-      <li><%= title %></li>
+      <li class="title"><%= title %></li>
       <li><%= author %></li>
       <li><%= releaseDate %></li>
       <li><% _.each(keywords, function (k) { %> <%= k %><% }); %></li>
     </ul>
+    <button class="edit pure-button">edit</button>
     <button class="delete pure-button">Delete</button>
   </script>
 {% endblock %}

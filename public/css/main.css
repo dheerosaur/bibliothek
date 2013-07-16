@@ -36,11 +36,23 @@
   line-height: 1.4em;
 }
 
+.bookContainer ul li.title {
+  font-size: 125%;
+  font-weight: bold;
+}
+
+.bookContainer .edit,
 .bookContainer .delete {
   font-size: 75%;
   color: white;
   padding: .3em 1em;
-  background: rgb(150, 150, 150);
+  background-color: #666;
+  background-color: rgba(200, 100, 100, 0.8);
+}
+
+.bookContainer .edit {
+  background-color: #888;
+  background-color: rgba(100, 200, 100, 0.8);
 }
 
 @media (max-width: 1200px) {
