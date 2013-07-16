@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/smoothness/jquery-ui-1.10.3.custom.min.css' %}">
+{% endblock %}
+
 {% block content %}
   <div id="books">
     <form class="pure-form pure-form-stacked" id="addBook" action="#" method="post">
@@ -61,6 +65,7 @@
     }
   </script>
   <script src="{% static 'js/libs/jquery.js' %}"></script>
+  <script src="{% static 'js/libs/jquery-ui-1.10.3.custom.min.js' %}"></script>
   <script src="{% static 'js/libs/underscore.js' %}"></script>
   <script src="{% static 'js/libs/backbone.js' %}"></script>
   <script src="{% static 'js/models/book.js' %}"></script>
